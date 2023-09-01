@@ -1,42 +1,73 @@
 * {margin: 0;}
 
 body {
-    font-family: 'Oswald', sans-serif;
-    background-color: #bbb;
+    margin: 0;
+    color: #ddd;
+    background-color: #222;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 /* grid */
 .container {
     display: grid;
-    grid-template-rows: 10% 40% 25% 20%;
-    grid-template-columns: repeat(6, calc(100% / 6));
-    row-gap: 4vh;
-    column-gap: 1vw;
-    margin: auto;
-    width: 700px;
-    height: 85vh;
+    grid-template-rows: 30vh 40vh 30vh;
+    grid-template-columns: 40vw 30vw 30vw;
 }
 
-.container .big {grid-column-end: span 3;}
+.main {grid-row: span 3;}
 
-.container img, .container div {
+img {
+    grid-row: span 2;
+    width: 100%;
     height: 100%;
-    width: 90%;
-    grid-column-end: span 2;
 }
 
-.container img {border: 2px solid white;}
-.container div {text-align: start;}
-
-h1 {
-    grid-column-end: span 6;
-    padding-top: 2vh;
+.text {
+    padding: 5vh;
+    width: auto;
+    height: auto;
+    color: #222;
+    background-color: #ddd;
 }
 
-h2 {font-size: 3vh;}
-p {padding-left: 5px;}
+/* flexbox 1 */
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* space-between in the main-axis, which is top to bottom(column) here */
+    align-items: baseline; /* baseline in the cross-axis, which is left to right(row) here */
+    margin: 20vh 0 5vh 2vw;
+    height: 60vh;
+    max-width: 35vw;
+    width: 400px;
+}
+
+/* flexbox 2 */
+.navbar {
+    display: flex;
+    justify-content: start; /* space-between in the main-axis, which is left to right(row) here */
+}
+
+.navbar p {
+    padding: 2.5vw;
+}
+
+.navbar p:hover {
+    color: #222;
+    background-color: aquamarine;
+}
 
 @media screen and (max-width: 800px) {
-    .container {width: 90vw;}
     body {font-size: 12px;}
+
+    /* grid */
+    .container {
+        grid-template-rows: 40vh 30vh 30vh 40vh 30vh;
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .main {grid-row: span 4;}
+
+    /* flexbox */
+    .flex {height: 100vh;}
 }
